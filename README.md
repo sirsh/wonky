@@ -8,6 +8,10 @@ Why? Maintainence. Cleanliness. Dealing with project uncertainty in a non ad-hoc
 
 How? Correct abstraction. Modularity. Reuse. Separation of concerns. Small functions. 
 
+## Consider...
+
+Understand the difference between objected-orientated and functional orientated programming but don't get caught up in the pointless debate. Partially ignoring my own advice, I find FP far more beautiful and fun (maybe because I learned it second) but there is obvioulsy a time and a place. Google the debate. 
+
 ### Links
 
 Example Style guides
@@ -15,6 +19,8 @@ Example Style guides
 [Python] https://www.python.org/dev/peps/pep-0008/
 
 [Julia] https://docs.julialang.org/en/v0.6.2/manual/style-guide/
+
+[Clean code] https://www.investigatii.md/uploads/resurse/Clean_Code.pdf
 
 Example Design patterns 
 
