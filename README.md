@@ -6,7 +6,7 @@ Many software engineering best practices can be relevant (when modified slightly
 ## 01 Patterns and style
 Why? Maintainence. Cleanliness. Dealing with project uncertainty in a non ad-hoc way
 
-How? Correct abstraction. Modularity. Reuse. Separation of concerns. Small functions. 
+How? Appropriate abstractions. Modularity. Reuse. Separation of concerns. Small functions. 
 
 ### Some things to Consider...
 
