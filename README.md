@@ -36,6 +36,10 @@ On Refactoring
 
 On Debugging
 
+[Example tips] https://embeddedartistry.com/blog/2017/9/6/debugging-9-indispensable-rules
+
+[Python in VS Code] https://code.visualstudio.com/docs/python/debugging
+
 Discussions
 
 [Speaking against scientific code] https://techblog.bozho.net/the-astonishingly-low-quality-of-scientific-code/
