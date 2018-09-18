@@ -1,7 +1,7 @@
 # Welcome to Wonky
 
 This project demonstrates some basic tips for creating numerics projects in physics, but keeping an eye on importing some best practices etc. from software engineering. 
-Many software engineering best practices can be relevant (when modified slightly) but may often be overlooked in science-related software projects, which emphaize different things. Topics include patterns, scaffolding projects, data management and "dev ops for physicists" all demonstrated either in the sample project or the notebooks.
+Many software engineering best practices can be relevant (when modified slightly) but may often be overlooked in science-related software projects, which emphasize different things. Topics include patterns, scaffolding projects, data management and "dev ops for physicists" all demonstrated either in the sample project or the notebooks.
 
 ### About the sample code
 What the actual code does is not so important because this is precisely about all the meta-stuff around the code function. However, the example does illustrate the type of code one may write in complex systems or statistical physics for example. Often, the model itself is relatively simple and most of the code is actually for data collection etc. Often the same boilerplate can be used over and over again in different, changing only the model. The current sample simulates an arbitrary multi-species chemical reaction network on a regular hyperlattice and collects statistics about the number of each space and the trace of each species as a function of time. The data are collated into a consitent file structure for analyis in notebooks.
