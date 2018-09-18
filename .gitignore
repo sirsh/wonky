@@ -1,0 +1,15 @@
+*.ipynb_checkpoints
+*.egg-info
+*.pyc 
+*.bat
+*.dat
+*.zip
+*.rar
+*.tar
+*.mp4
+sample_data
+build
+dist
+logs
+
+
