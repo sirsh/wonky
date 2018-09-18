@@ -9,7 +9,7 @@ Many software engineering best practices can be relevant (when modified slightly
 
 ## DevOps (or something like it)
 
-### Numerical matters
+## Numerical matters
 
 ### links
 
