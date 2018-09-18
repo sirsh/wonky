@@ -3,7 +3,7 @@
 This project demonstrates some basic tips for creating numerics projects in physics, but keeping an eye on importing some best practices etc. from software engineering. 
 Many software engineering best practices can be relevant (when modified slightly) but may often be overlooked in science-related software projects, which emphaize different things. Topics include patterns, scaffolding projects, data management and "dev ops for physicists" all demonstrated either in the sample project or the notebooks.
 
-## Patterns 
+## 01 Patterns and style
 Why? Maintainence. Cleanliness. Dealing with project uncertainty in a non ad-hoc way
 
 How? Correct abstraction. Modularity. Reuse. Separation of concerns. Small functions. 
@@ -47,9 +47,9 @@ Discussions
 [Repudiation] https://yosefk.com/blog/why-bad-scientific-code-beats-code-following-best-practices.html
 
 
-## DevOps (or something like it)
+## 02 DevOps (or something like it)
 
-## Numerical matters
+## 03 Numerical matters
 
 ### links
 
