@@ -8,7 +8,7 @@ Why? Maintainence. Cleanliness. Dealing with project uncertainty in a non ad-hoc
 
 How? Correct abstraction. Modularity. Reuse. Separation of concerns. Small functions. 
 
-##' Some things to Consider...
+### Some things to Consider...
 
 Understand the difference between objected-orientated and functional orientated programming but don't get caught up in the pointless debate. Partially ignoring my own advice, I find FP far more beautiful and fun (maybe because I learned it second) but there is obvioulsy a time and a place. Google the debate. 
 
