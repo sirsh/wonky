@@ -6,6 +6,10 @@ from numba import jit
 def get_hyper_lattice(lattice,dim):
     size = lattice**dim
     return np.zeros(size,np.int8)
+
+def get_species_counter(length,dim,nspecies):
+    size = length**dim
+    return np.zeros((size, nspecies), np.int)
     
 def put (lattice,i,species):
     lattice[i] |= (1<<species)
@@ -18,7 +22,7 @@ def remove(lattice,i,species):
 def get (lattice,i,species):
     return lattice[i] & (1<<species)
 
-@jit
+#@jit
 def diffuse(i, length, dim):
     #this checks that we are on the same partition - jump should be float
     #torus: jump in the positive sense and mod by the next partition boundary
@@ -33,16 +37,8 @@ def diffuse(i, length, dim):
     jump = length**axis
     return __wrapped__(i, i + (sense * jump),axis,jump*1.)
 
-@jit
+#@jit
 def walk_lattice_from(lattice, size, i=5550, walk_length=500000):
     for n in range(walk_length):
         put(lattice,i,1)
         i = diffuse(i,*size)   
-        
-def display(lattice,dim,species):
-    from matplotlib import pyplot as plt
-    shape = np.zeros(dim,np.int)
-    length = int(len(lattice)**(1/dim))
-    shape[:] = length
-    image = np.reshape(lattice,shape)
-    return plt.imshow(image, "Blues")
