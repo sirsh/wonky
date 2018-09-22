@@ -16,13 +16,12 @@ class crn(object):
         #keep track of static lengths so we do not have to re-compute them L * D * S
         self._dimensions = np.array(list(lattice_size)+[self._num_species])
         self._options = options
-        
         num_observables, num_increments = 2,self._max_time_units
-        
         self.stats =  statistics((self._num_species,num_observables,num_increments))     
         self.__reset__()
                   
-    def __reset__(self,params={}): 
+    def __reset__(self,params={}):
+        ##asume we can change the lattice size or reaction system in principle but do not do so for now
         self._lattice_map = lattice.get_hyper_lattice(*self._lattice_size)
         self._trace_map = lattice.get_hyper_lattice(*self._lattice_size)
         self._lattice_sites = lattice.get_species_counter(*self._lattice_size,self._num_species)  
@@ -56,16 +55,6 @@ class crn(object):
     def lattice_sites(self):
         import pandas as pd
         return pd.DataFrame(self._lattice_sites)
-    
-    #todo other versions e.g. statisitcs could construct new crns - keep in mind some parameters dont require re-new
-    def run_experiment(self, ex_options,yield_trace=False):
-        for k,p in get_paramter_space(ex_options).iterrows(): 
-            name = str(k) if "name" not in p else p["name"]
-            #update the qualified name
-            p["name"] = name if "name" not in self._options else self._options["name"]+"/"+name
-            res = self.sample(p) 
-            if yield_trace:
-                yield self._trace_map
     
     #####################
     ###Begin manage active sites
@@ -135,6 +124,18 @@ class crn(object):
     ###Primary CRN functions
     #####################
 
+     #todo other versions e.g. statisitcs could construct new crns - keep in mind some parameters dont require re-new
+    @jit
+    def run_experiment(self, ex_options,yield_trace=False):
+        for k,p in get_paramter_space(ex_options).iterrows(): 
+            name = str(k) if "name" not in p else p["name"]
+            #update the qualified name
+            p["name"] = name if "name" not in self._options else self._options["name"]+"/"+name
+            res = self.sample(p) 
+            if yield_trace:
+                yield self._trace_map
+                
+    @jit
     def __reaction_diffusion_sampler__(i, rsystem, lattice_sites):
         sys = rsystem[0]
         #only reactions for which there are sufficient particles at sites can happen
@@ -148,6 +149,7 @@ class crn(object):
         delta = -choice[:,0] + choice[:,1]    
         return delta#,trace delta on any site
     
+    @jit
     def __update_sites__(i, delta, lattice_map, trace_map, lattice_sites, active_sites, length, dim=2):  
         trace_delta = np.zeros(len(delta))
         lattice_site = lattice_sites[i]
@@ -161,6 +163,7 @@ class crn(object):
                 crn.__remove__(i,s, trace_delta, lattice_map, trace_map,lattice_sites,active_sites)    
         return trace_delta
     
+    @jit
     def sample(self,params={},display=False):
         self.__reset__(params)
         while self._t < self._max_time_units and self.active_site_count > 0:         
@@ -176,6 +179,7 @@ class crn(object):
             crn.__active_site_exit__(i, self._lattice_map,self._active_sites)
             self.stats.update(self._t, np.array([delta, trace_delta],np.int))
             self._t += 1
-        #self.stats.flush()
+        #for early termination of processes fill forward for remaining t for non-ragged data frames
+        self.stats.flush()
         if display:self.display_trace(0)
         if "name" in params: self.stats.save(params["name"])

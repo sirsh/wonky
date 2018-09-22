@@ -33,7 +33,7 @@ class statistics(np.ndarray):
     def save(self, file=None):
         np.save(file,self)
     
-    #@jit
+    @jit
     def update(self, t, v):
         self._counter += v
         self._last_t = t
@@ -42,15 +42,14 @@ class statistics(np.ndarray):
                 for m in range(self._num_moments):   
                     self[s][o][m][t] = self._counter[o][s]**m
                 
-    #@jit
+    @jit
     def flush(self):
         for o in range(self._num_obs):
             for s in range(self._num_species):
                 for m in range(self._num_moments):
                     ar = self[s][o][m]
                     val = ar[self._last_t]
-                #then fill all nan values with this last computed value 
-                    self[s][o][m] = val                           
+                    self[s][o][m][self._last_t:] = val                           
     
 #stats module time loop test
 #create a numpy tensor wrapper with functions and make it avaialble to another object which is itself fast
