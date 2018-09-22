@@ -6,6 +6,8 @@ Many software engineering best practices can be relevant (when modified slightly
 ### About the sample code
 What the actual code does is not so important because this is precisely about all the meta-stuff around the code function. However, the example does illustrate the type of code one may write in complex systems or statistical physics for example. Often, the model itself is relatively simple and most of the code is actually for data collection etc. Often the same boilerplate can be used over and over again in different research projects, changing only the model. The current sample simulates an arbitrary multi-species chemical reaction network on a regular hyperlattice and collects statistics about the number of each species and the trace of each species as a function of time. The data are collated into a consitent file structure for analyis in notebooks.
 
+See the [sample] (https://github.com/sirsh/wonky/guide.ipynb)
+
 ## 01 Patterns and style
 Why? Maintenance. Cleanliness. Dealing with project uncertainty in a non ad-hoc way
 
