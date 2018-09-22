@@ -4,18 +4,19 @@ import numpy as  np
 #import pandas as pd
 from numba import jit
 from .. import statistics, lattice, reaction,plotting
-
+from .. utils import get_paramter_space
 
 class crn(object):
-    def __init__(self,reaction_system, lattice_size, ICs = [], options={}):
+    def __init__(self,reaction_system, lattice_size, ICs = [], options={"name": "./sample_data/exp"}):
         self._num_species = len(reaction_system[1])
         self._rsys = reaction_system
         self._lattice_size = lattice_size
         self._ics = ICs
         self._max_time_units = 20# from options
         #keep track of static lengths so we do not have to re-compute them L * D * S
-        self.dimensions = np.array(list(lattice_size)+[self._num_species])
-            
+        self._dimensions = np.array(list(lattice_size)+[self._num_species])
+        self._options = options
+        
         num_observables, num_increments = 2,self._max_time_units
         
         self.stats =  statistics((self._num_species,num_observables,num_increments))     
@@ -56,9 +57,15 @@ class crn(object):
         import pandas as pd
         return pd.DataFrame(self._lattice_sites)
     
-    def run_experiment(self, ex_options):
-        for params in range(ex_options.parameter_space):
-            stats,lattice,trace = self.sample(params) 
+    #todo other versions e.g. statisitcs could construct new crns - keep in mind some parameters dont require re-new
+    def run_experiment(self, ex_options,yield_trace=False):
+        for k,p in get_paramter_space(ex_options).iterrows(): 
+            name = str(k) if "name" not in p else p["name"]
+            #update the qualified name
+            p["name"] = name if "name" not in self._options else self._options["name"]+"/"+name
+            res = self.sample(p) 
+            if yield_trace:
+                yield self._trace_map
     
     #####################
     ###Begin manage active sites
@@ -169,5 +176,6 @@ class crn(object):
             crn.__active_site_exit__(i, self._lattice_map,self._active_sites)
             self.stats.update(self._t, np.array([delta, trace_delta],np.int))
             self._t += 1
-        #self.statistics.flush()
+        #self.stats.flush()
         if display:self.display_trace(0)
+        if "name" in params: self.stats.save(params["name"])

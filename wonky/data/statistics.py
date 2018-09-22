@@ -31,9 +31,7 @@ class statistics(np.ndarray):
         return self
 
     def save(self, file=None):
-        #fastest way to dump the page to disk in a way pandas will be able to get it back
-        #could put it on another thread and get on with the next chunk but whatever
-        pass
+        np.save(file,self)
     
     #@jit
     def update(self, t, v):
@@ -52,9 +50,7 @@ class statistics(np.ndarray):
                     ar = self[s][o][m]
                     val = ar[self._last_t]
                 #then fill all nan values with this last computed value 
-                    self[s][o][m] = val            
-        self.save()
-                
+                    self[s][o][m] = val                           
     
 #stats module time loop test
 #create a numpy tensor wrapper with functions and make it avaialble to another object which is itself fast
