@@ -4,7 +4,7 @@ This project demonstrates some basic tips for creating numerics projects in phys
 Many software engineering best practices can be relevant (when modified slightly) but may often be overlooked in science-related software projects, which emphasize different things. Topics include patterns, scaffolding projects, data management and "dev ops for physicists" all demonstrated either in the sample project or the notebooks.
 This project was created for the __Workshop On Numerical methods in KomplexitY__ organised by the Nonequilibrium physics group at Imperial College London.
 
-![ScyOps](https://drive.google.com/open?id=1Tn9qkf-edzr-_cqN-i8qrf6bMN5XdFCy "Scyops")
+![](https://github.com/sirsh/wonky/blob/master/images/ScyOps.png)
 
 ### About the sample code
 What the actual code does is not so important because this is precisely about all the meta-stuff around the code function. However, the example does illustrate the type of code one may write in complex systems or statistical physics for example. Often, the model itself is relatively simple and most of the code is actually for data collection etc. Often the same boilerplate can be used over and over again in different research projects, changing only the model. The current sample simulates an arbitrary multi-species chemical reaction network on a regular hyperlattice and collects statistics about the number of each species and the trace of each species as a function of time. The data are collated into a consistent file structure for analysis in notebooks. See the [guide](https://github.com/sirsh/wonky/blob/master/guide.ipynb).
