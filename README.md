@@ -5,16 +5,16 @@ Many software engineering best practices can be relevant (when modified slightly
 This project was created for the __Workshop on Numerical methods in KomplexitY__ organised by the Nonequilibrium physics group at Imperial College London.
 
 ### About the sample code
-What the actual code does is not so important because this is precisely about all the meta-stuff around the code function. However, the example does illustrate the type of code one may write in complex systems or statistical physics for example. Often, the model itself is relatively simple and most of the code is actually for data collection etc. Often the same boilerplate can be used over and over again in different research projects, changing only the model. The current sample simulates an arbitrary multi-species chemical reaction network on a regular hyperlattice and collects statistics about the number of each species and the trace of each species as a function of time. The data are collated into a consitent file structure for analyis in notebooks. See the [guide](https://github.com/sirsh/wonky/blob/master/guide.ipynb).
+What the actual code does is not so important because this is precisely about all the meta-stuff around the code function. However, the example does illustrate the type of code one may write in complex systems or statistical physics for example. Often, the model itself is relatively simple and most of the code is actually for data collection etc. Often the same boilerplate can be used over and over again in different research projects, changing only the model. The current sample simulates an arbitrary multi-species chemical reaction network on a regular hyperlattice and collects statistics about the number of each species and the trace of each species as a function of time. The data are collated into a consistent file structure for analysis in notebooks. See the [guide](https://github.com/sirsh/wonky/blob/master/guide.ipynb).
 
-## 01 Patterns and style
-Why? Maintenance. Cleanliness. Dealing with project uncertainty in a non ad-hoc way
+## 01 Patterns, paradigms and style
+Patterns, why? Maintenance. Cleanliness. Dealing with project uncertainty in a non ad-hoc way
 
-How? Appropriate abstractions. Modularity. Reuse. Separation of concerns. Small functions. 
+Patterns, How? Appropriate abstractions. Modularity. Reuse. Separation of concerns. Small functions. 
 
-### Some things to Consider...
+### Some things to consider about mixing paradigms...
 
-Understand the difference between objected-orientated and functional orientated programming but don't get caught up in the pointless debate. Partially ignoring my own advice, I find FP far more beautiful and fun (maybe because I learned it second) but there is obvioulsy a time and a place. Google the debate. 
+Scientific code should properly mix paradigms such as OOP, FOP and VOP. See the Wiki post on [mixing paradigms](https://github.com/sirsh/wonky/wiki/Mixing-Paradigms)
 
 ### Links
 
@@ -52,6 +52,14 @@ Discussions
 
 
 ## 02 DevOps (or something like it)
+[DevOps](https://en.wikipedia.org/wiki/DevOps) in in software engineering is interesting because it represents the evolution of software engineering culture towards automated management of the software lifecycle. Often times, this is about "operations" i.e ensuring software is up and running 24/7. Therefore in science, where often we don't care if our software is "live" or even if it has a "life-time" beyond the current project, Dev-Ops may seem redundant. What can scientists learn from the Dev Ops movement? In a nutshell, perhaps things like automating repetitive tasks,  [unit testing](https://en.wikipedia.org/wiki/Test-driven_development) for rigour and source control ([git](https://en.wikipedia.org/wiki/Git)) and other practices for sharing and [reproducibility](https://en.wikipedia.org/wiki/Reproducibility). Sometimes sharing/reproducibility just means sharing with your future self! Interestingly, it is far, far easier to "excuse" one's self for not adopting certain practices in science compared to software engineering. The mistake may be in believing that the demands of each domain are really so different.
+
+### Links
+
+Lessons from the 'middle ground'...
+
+[DevOps in data science](https://redmonk.com/dberkholz/2012/11/06/what-can-data-scientists-learn-from-devops/)
+
 
 ## 03 Numerical matters
 

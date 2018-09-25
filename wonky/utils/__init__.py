@@ -2,6 +2,7 @@ from glob import glob
 from os import path
 import numpy as np
 import pandas as pd
+import json
 
 def get_paramter_space(params):
     from itertools import product
@@ -32,3 +33,6 @@ def compile_statistics(  observable = 0, species =0, params = None,ename="./samp
         all_data = pspace.join(all_data)
     return all_data
     
+    
+def dict_dump_to_file(d,f):
+    with open(f, 'w') as fp: json.dump(d,fp)

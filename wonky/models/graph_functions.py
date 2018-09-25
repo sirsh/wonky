@@ -22,20 +22,29 @@ def remove(lattice,i,species):
 def get (lattice,i,species):
     return lattice[i] & (1<<species)
 
-#@jit
-def diffuse(i, length, dim):
-    #this checks that we are on the same partition - jump should be float
-    #torus: jump in the positive sense and mod by the next partition boundary
-    def __wrapped__(i, idash,axis,jump):
+def __wrapped__(i, idash,length, axis,jump):
         boundary = jump * length
         if (np.floor(i/boundary)!=np.floor(idash/boundary)):  
             return int((idash + boundary) % boundary)
         return idash
+
+def get_neighbours(i, length, dim):
+    for choice in range(2*dim):
+        axis = int(choice/2.)
+        sense = -1 if choice % 2 == 0 else 1
+        jump = length**axis
+        yield __wrapped__(i, i + (sense * jump),length,axis,jump*1.)
+
+@jit
+def diffuse(i, length, dim):
+    #this checks that we are on the same partition - jump should be float
+    #torus: jump in the positive sense and mod by the next partition boundary
+
     choice = np.random.randint(2*dim)
     axis = int(choice/2.)
     sense = -1 if choice % 2 == 0 else 1
     jump = length**axis
-    return __wrapped__(i, i + (sense * jump),axis,jump*1.)
+    return __wrapped__(i, i + (sense * jump),length,axis,jump*1.)
 
 #@jit
 def walk_lattice_from(lattice, size, i=5550, walk_length=500000):
