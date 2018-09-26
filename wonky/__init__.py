@@ -1,5 +1,8 @@
 import json
 import os
+
+__version__ = 0.3.0
+
 class _settings(dict):
     def __init__(self, path):
         self.path = path
