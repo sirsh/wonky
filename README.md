@@ -48,7 +48,7 @@ Discussions
 
 
 ## 02 DevOps (or something like it)
-[DevOps](https://en.wikipedia.org/wiki/DevOps) in software engineering is interesting because it represents the evolution of software engineering culture towards automated management of the software lifecycle. Often times, this is about "operations" i.e ensuring software is up and running 24/7. Therefore in science, where often we don't care if our software is "live" or even if it has a "life-time" beyond the current project, Dev-Ops may seem redundant. What can scientists learn from the Dev Ops movement? In a nutshell, perhaps things like automating repetitive tasks,  [unit testing](https://en.wikipedia.org/wiki/Test-driven_development) for rigour and source control ([git](https://en.wikipedia.org/wiki/Git)) and other practices for sharing and [reproducibility](https://en.wikipedia.org/wiki/Reproducibility). Sometimes sharing/reproducibility just means sharing with your future self! Interestingly, it is far, far easier to "excuse" one's self for not adopting certain practices in science compared to software engineering. The mistake may be in believing that the demands of each domain are really so different.
+[DevOps](https://en.wikipedia.org/wiki/DevOps) in software engineering is interesting because it represents the evolution of software engineering culture towards automated management of the software life-cycle. Often times, this is about "operations" i.e ensuring software is up and running 24/7. Therefore in science, where often we don't care if our software is "live" or even if it has a "life-time" beyond the current project, Dev-Ops may seem redundant. What can scientists learn from the Dev Ops movement? In a nutshell, perhaps things like automating repetitive tasks,  [unit testing](https://en.wikipedia.org/wiki/Test-driven_development) for rigour and source control ([git](https://en.wikipedia.org/wiki/Git)) and other practices for sharing and [reproducibility](https://en.wikipedia.org/wiki/Reproducibility). Sometimes sharing/reproducibility just means sharing with your future self! Interestingly, it is far, far easier to "excuse" one's self for not adopting certain practices in science compared to software engineering. The mistake may be in believing that the demands of each domain are really so different.
 
 ### Links
 
@@ -76,3 +76,7 @@ On Debugging
 [Example tips] https://embeddedartistry.com/blog/2017/9/6/debugging-9-indispensable-rules
 
 [Python in VS Code] https://code.visualstudio.com/docs/python/debugging
+
+
+
+
