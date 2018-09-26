@@ -195,14 +195,19 @@ class crn(object):
     @jit
     def sample(self,params={},display=False):
         '''
-        This is the main workflow entry point - sample a single realisation of a reaction diffusion process
+        This is the main workflow entry point - sample a single realisation of a reaction-diffusion process
         no complex logic should exist here - delegate to other methods that can be unit tested
-        the transation samples a random [active] site, then samples a reaction for the site, applies the reaction and then exits the site scope.
+        the transaction samples a random [active] site, then samples a [viable] reaction for the site, applies the reaction and then exits the site scope.
         On exit, it is important to check if the site is still [active] and manage the active site list for further processing
         Statistics are updated using the species population and trace deltas
-        Stats are flushed if there is still something 'on the clock' hence all stat frames are filled to the same point
+        Stats are flushed if there is still something 'on the clock' - All stat frames are auto-filled to the same point where necessary
         '''
-        self.__reset__(params)
+        #TODO: Should add an N iterations loop here in practice but for illustration I do not. 
+        #In that case we would read params["N"] and run that many instances
+        #as is, we just treat N as a chunk number instead, where chunk has 1 sample
+        
+        
+        self.__reset__(params)#reset the lattice etc. we are starting a fresh model instance
         while self._t < self._max_time_units and self.active_site_count > 0:         
             i = self.sample_active_site()
             delta = crn.__reaction_diffusion_sampler__(i,self._rsys, self._lattice_sites)
@@ -216,7 +221,7 @@ class crn(object):
             crn.__active_site_exit__(i, self._lattice_map,self._active_sites)
             self.stats.update(self._t, np.array([delta, trace_delta],np.int))
             self._t += 1
-        #for early termination of processes fill forward for remaining t for non-ragged data frames
+        #for early termination of processes fill forward for remaining t to ensure non-ragged data frames
         self.stats.flush()
         if display:self.display_trace(0)
         if "name" in params: self.stats.save(params["name"])
