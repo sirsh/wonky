@@ -1,7 +1,7 @@
 import json
 import os
 
-__version__ = 0.3.0
+__version__ = "0.4.0"
 
 class _settings(dict):
     def __init__(self, path):
