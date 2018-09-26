@@ -26,7 +26,7 @@ class crn(object):
         self.__reset__()
                   
     def __reset__(self,params={}):
-        ##asume we can change the lattice size or reaction system in principle but do not do so for now
+        ##assume we can change the lattice size or reaction system in principle but do not do so for now
         self._lattice_map = lattice.get_hyper_lattice(*self._lattice_size)
         self._trace_map = lattice.get_hyper_lattice(*self._lattice_size)
         self._lattice_sites = lattice.get_species_counter(*self._lattice_size,self._num_species)  
@@ -85,7 +85,7 @@ class crn(object):
     def sample_active_site(self):
         #pick any active site
         r = randint(self._active_sites[-1])
-        #record wich one we sampled to manage stack
+        #record which one we sampled to manage stack
         self._active_sites[-2] = r
         return self._active_sites[r]
     

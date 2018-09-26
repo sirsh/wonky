@@ -1,15 +1,18 @@
-import json
-import os
+
+
 
 __version__ = "0.4.0"
 
 class _settings(dict):
+    
     def __init__(self, path):
         self.path = path
         self.settings_validated = False
         self.reload()
         
     def reload(self):
+        import os
+        import json
         if os.path.exists(self.path):
             with open(self.path) as f:
                 try:
@@ -27,7 +30,6 @@ settings = _settings("./settings.json")
                     
 #load numpy first, which has a random number generator
 import numpy as np
-import os
 #choose a seed from config
 if "seed" in settings: np.random.seed(int(settings["seed"]))
     
