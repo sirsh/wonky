@@ -4,7 +4,8 @@ from numpy.random import choice, randint
 from numba import jit
 from .. import statistics, lattice, reaction,plotting
 from .. utils import get_paramter_space,dict_dump_to_file
-from .. import settings
+from .. import settings, __version__
+
 
 class crn(object):
     
@@ -145,10 +146,8 @@ class crn(object):
         #dump meta data
         metafile = "./meta" if "name" not in self._options else self._options["name"]+"/meta"
         #in practice should check some os and serializability conditions. 
-        dict_dump_to_file({"seed": settings.seed, "params": ex_options, "wonky_version": "Todo"},metafile)
-        
-        
-
+        dict_dump_to_file({"seed": settings.seed, "params": ex_options, "wonky_version": __version__},metafile)
+       
     @staticmethod      
     @jit
     def __reaction_diffusion_sampler__(i, rsystem, lattice_sites):
