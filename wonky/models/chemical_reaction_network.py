@@ -195,7 +195,7 @@ class crn(object):
     @jit
     def sample(self,params={},display=False):
         '''
-        t=This is the main workflow entry point - sample a single realisation of a reaction diffusion process
+        This is the main workflow entry point - sample a single realisation of a reaction diffusion process
         no complex logic should exist here - delegate to other methods that can be unit tested
         the transation samples a random [active] site, then samples a reaction for the site, applies the reaction and then exits the site scope.
         On exit, it is important to check if the site is still [active] and manage the active site list for further processing

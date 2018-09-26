@@ -63,6 +63,12 @@ Lessons from the 'middle ground'...
 
 [Numba](https://numba.pydata.org/)
 
+[Numpy (basics)](https://realpython.com/numpy-array-programming/)
+
+[100 Numpy excercises](http://www.labri.fr/perso/nrougier/teaching/numpy.100/index.html)
+
+[Einsum](http://ajcr.net/Basic-guide-to-einsum)
+
 ## 04 Other things
 
 On Debugging
