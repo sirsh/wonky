@@ -1,6 +1,6 @@
 # Welcome to Wonky
 
-This project demonstrates some basic tips for creating numerics projects in physics, but keeping an eye on and importing some best practices etc. from software engineering. 
+This project demonstrates some basic tips for creating numerics projects in physics, but keeping an eye on and importing some best practices and patterns from software engineering. 
 Many software engineering best practices can be relevant (when modified slightly) but may often be overlooked in science-related software projects, which emphasize different things. Topics include patterns, scaffolding projects, data management and "dev ops for physicists" all demonstrated either in the sample project or the notebooks.
 This project was created for the __Workshop On Numerical methods in KomplexitY__ organised by the Nonequilibrium physics group at Imperial College London.
 
@@ -12,7 +12,7 @@ What the actual code does is not so important because this is precisely about al
 ## 01 Patterns, paradigms and style
 Patterns, why? Maintenance. Cleanliness. Dealing with project uncertainty in a non ad-hoc way
 
-Patterns, How? Appropriate abstractions. Modularity. Reuse. Separation of concerns. Small functions. 
+Patterns, how? Appropriate abstractions. Modularity. Reuse. Separation of concerns. Small functions. 
 
 ### Some things to consider about mixing paradigms...
 
