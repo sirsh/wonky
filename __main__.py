@@ -1,9 +1,19 @@
 #!/usr/bin/env python
-
+"""
+NB: CLI NOTE YET IMPLMENTED!
+Usage:
+    wonky run [--config]
+    wonky configure [--data_folder --archive_folder]
+    wonky archive <name> [--project]
+Options:
+ -h --help  Show this screen
+ --version  Show version
+ -- 
+"""
+from docopt import docopt
 import sys
-
-ascii_art = """
-
+if __name__ == "__main__": 
+    ascii_art = """
                       __           
 __  _  ______   ____ |  | _____.__.
 \ \/ \/ /  _ \ /    \|  |/ <   |  |
@@ -11,11 +21,7 @@ __  _  ______   ____ |  | _____.__.
   \/\_/ \____/|___|  /__|_ \/ ____|
                    \/     \/\/     
  \n\n"""
-
-def main(args=None):
-    l= len(sys.argv)
     print(ascii_art)
-    maxindex= int(sys.argv[2]) if l > 2 else None
-    
-    
-if __name__ == "__main__":  main() 
+    #todo: I have not yet implemented the doc options 
+    arguments = docopt(__doc__, version='0.10.0')
+    print(arguments)
