@@ -1,5 +1,5 @@
 
-__version__ = "0.12.0"
+__version__ = "0.13.0"
 
 class _settings(dict):
     
