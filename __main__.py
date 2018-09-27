@@ -23,5 +23,5 @@ __  _  ______   ____ |  | _____.__.
  \n\n"""
     print(ascii_art)
     #todo: I have not yet implemented the doc options 
-    arguments = docopt(__doc__, version='0.10.0')
+    arguments = docopt(__doc__, version='0.11.0')
     print(arguments)
