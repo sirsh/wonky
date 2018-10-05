@@ -1,4 +1,3 @@
-
 __version__ = "0.14.0"
 
 class _settings(dict):
@@ -37,3 +36,4 @@ from .models import graph_functions as lattice
 from .data import statistics
 from .utils import plotting
 from .models.chemical_reaction_network import crn
+from . __dispatcher__ import dispatch

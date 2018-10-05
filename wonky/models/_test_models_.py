@@ -114,6 +114,7 @@ class test_single_species_crn(unittest.TestCase):
         self.assertEquals(trace.sum(), 1)
 
     #TODO - multi species tests
+    #if we add ICs for say 2 out of 3, make sure conditions are correct for all species sites/maps
 
 if __name__ == '__main__':
     unittest.main()    

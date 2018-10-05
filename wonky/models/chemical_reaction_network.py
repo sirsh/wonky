@@ -37,9 +37,10 @@ class crn(object):
         self.stats.init()
         self._t = 0 
         for i,s in enumerate(self._ics):
-            self.put(site,i)
-            #put as many species as we init with on this site
-            self._lattice_sites[site][i] = s
+            if s > 0:#if there is at least one, add 
+                self.put(site,i)
+                #put as many species as we init with on this site
+                self._lattice_sites[site][i] = s
 
         #update the stats for initial conditions
         self.stats.update(self._t, np.array([self._ics, self._ics],np.int))
@@ -50,12 +51,10 @@ class crn(object):
        
     #for these maybe i can do multi species in a grid of subplots
     def display_lattice(self,species=0):
-        species = 0
-        plotting.grid_display(self._lattice_map,0)
+        plotting.grid_display(self._lattice_map,species)
         
     def display_trace(self,species=0):
-        species = 0
-        plotting.grid_display(self._trace_map,0)
+        plotting.grid_display(self._trace_map,species)
         
     def lattice_sites(self):
         import pandas as pd
@@ -163,9 +162,12 @@ class crn(object):
         viable_subsystem = sys[mask]
         rates = rsystem[-1][mask]
         rates /= rates.sum()
+        
+        if len(rates) == 0:print("empty choice at site", i, lattice_sites[i])
         #choose a reaction from the viable subsystem according to the rates
         #in principle we could insert a void ation to norm the rates differently 
         ch = choice(len(rates),1,p=rates)[0]
+        
         ch = viable_subsystem[ch]
         delta = -ch[:,0] + ch[:,1]    
         return delta#,trace delta on any site

@@ -21,12 +21,12 @@ def grid_display(lattice,species,dim=2):
     image = np.reshape(lattice,shape)
     
     canvas = np.zeros(image.shape)
-    canvas[::2] = 3
-    canvas[:,::2] = 3
+    canvas[::2] = image.max()+1
+    canvas[:,::2] = image.max()+1
     #mask will change to something more sophisticated based on mask
     canvas[image>0] = image[image>0]
     plt.imshow(canvas, "nipy_spectral")
-    
+     
 def plot_many(images, size, species=0, names=[]):
     def display(lattice,species,ax, dim=2):
         from matplotlib import pyplot as plt
