@@ -1,7 +1,7 @@
 # Welcome to Wonky
 
 This project demonstrates some basic tips for creating numerics projects in physics, but keeping an eye on and importing some best practices and patterns from software engineering. 
-Many software engineering best practices can be relevant (when modified slightly) but may often be overlooked in science-related software projects, which emphasize different things. Topics include patterns, scaffolding projects, data management and "dev ops for physicists" all demonstrated either in the sample project or the notebooks.
+Many software engineering best practices can be relevant (when modified slightly and respecting [differences in the disciplines](https://github.com/sirsh/wonky/wiki/Sci.-vs-SoftEng.-code)) but may often be overlooked in science-related software projects, which emphasize different things. Topics include patterns, scaffolding projects, data management and "dev ops for physicists" all demonstrated either in the sample project or the notebooks.
 This project was created for the __Workshop On Numerical methods in KomplexitY__ organised by the Nonequilibrium physics group at Imperial College London. Wonky is about _the numerics behind the science_. It is in some sense once-removed from the science, dealing with techniques that _do_ take up time and energy but or often not directly spoken about in papers or seminars. The current project is in some sense _twice_-removed from the science in that it is about _meta_numerics i.e. all the scaffolding we put around our numerics to manage the process systematically.
 
 ![](https://github.com/sirsh/wonky/blob/master/images/ScyOps.png)
