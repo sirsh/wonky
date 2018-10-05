@@ -36,5 +36,5 @@ __  _  ______   ____ |  | _____.__.
                    \/     \/\/     
  """
     print(ascii_art)
-    a = wonky.dispatch(__doc__,version='0.17.0')
+    a = wonky.dispatch(__doc__,version='0.18.0')
     #todo - implement the various dispatchers for CLI mode

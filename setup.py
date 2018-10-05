@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='wonky',
-    version='0.17.0',
+    version='0.18.0',
     author='Sirsh',
     author_email='amartey@gmail.com',
     license='MIT',
